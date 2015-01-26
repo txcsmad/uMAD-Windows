@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="uMAD.ScheduleControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:uMAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Light"
+    d:DesignHeight="300"
+    d:DesignWidth="400" d:DataContext="{d:DesignData /SampleData/ScheduleSessionSampleData.xaml}">
+    <UserControl.Resources>
+        <x:String x:Key="dateFormatString">{0:hh:mmt ddd}</x:String>
+    </UserControl.Resources>
+    <Grid>
+        <ListView x:Name="dataList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding SubjectName}" Grid.ColumnSpan="2" Style="{StaticResource ListViewItemContentTextBlockStyle}" FontSize="21.333"/>
+                        <TextBlock Text="{Binding Time, Converter={StaticResource StringFormatConverter}, ConverterParameter={StaticResource dateFormatString}}" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="13.333"/>
+                        <TextBlock Text="{Binding SpeakerName}" Grid.Row="1" HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="13.333" Margin="6,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

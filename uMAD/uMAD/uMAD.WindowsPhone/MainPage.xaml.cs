@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,8 +28,19 @@ namespace uMAD
         {
             this.InitializeComponent();
 
+            //StatusBar.GetForCurrentView().HideAsync();
             this.NavigationCacheMode = NavigationCacheMode.Required;
+            Loaded += MainPage_Loaded;
         }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
+            var bar = StatusBar.GetForCurrentView();
+            bar.BackgroundColor = (Color)App.Current.Resources["MADColor"];
+            bar.BackgroundOpacity = 1;
+        }
+
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -43,6 +56,22 @@ namespace uMAD
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+        }
+
+        private void navigationPivot_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
+        {
+            switch (navigationPivot.SelectedIndex)
+            {
+                case 0:
+                    VisualStateManager.GoToState(this, "ScheduleState", true);
+                    break;
+                case 1:
+                    VisualStateManager.GoToState(this, "TwitterStatee", true);
+                    break;
+                case 2:
+                    VisualStateManager.GoToState(this, "SponsorState", true);
+                    break;
+            }
         }
     }
 }

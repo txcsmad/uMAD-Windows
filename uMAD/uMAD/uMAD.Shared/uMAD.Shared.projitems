@@ -15,6 +15,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ScheduleSession.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Converters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)seguisym.ttf" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Tweet.cs" />
   </ItemGroup>
 </Project>
