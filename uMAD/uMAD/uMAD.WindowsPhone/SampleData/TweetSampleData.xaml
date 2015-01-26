@@ -1,0 +1,5 @@
+﻿<Data:Tweet xmlns:Data="using:uMAD.Data" xmlns:Imaging="using:Windows.UI.Xaml.Media.Imaging" displayName="Aaberg, Jesper" tweetText="Cras aliquam integer class maecenas duis quisque nam aenean vivamus" username="Aaberg, Jesper">
+	<Data:Tweet.twitterImage>
+		<Imaging:BitmapImage CreateOptions="None" DecodePixelHeight="99" DecodePixelWidth="59" DecodePixelType="Logical"/>
+	</Data:Tweet.twitterImage>
+</Data:Tweet>

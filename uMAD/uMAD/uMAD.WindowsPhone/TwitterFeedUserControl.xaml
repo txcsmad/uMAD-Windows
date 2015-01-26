@@ -1,0 +1,39 @@
+﻿<UserControl
+    x:Class="uMAD.TwitterFeedUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:uMAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    RequestedTheme="Light">
+    <UserControl.Resources>
+        <DataTemplate x:Key="TweetTemplate">
+            <StackPanel Margin="15, 10, 5, 10" Orientation="Horizontal" d:DataContext="{d:DesignData /SampleData/TweetSampleData.xaml}">
+                <Image x:Name="TwitterImage" Source="{Binding twitterImage}" d:DesignWidth="64.776" d:DesignHeight="56.07" RenderTransformOrigin="0.517,0.489" Width="50" Height="50"/>
+                <Grid Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+              
+                    <TextBlock x:Name="DisplayName" Text="{Binding displayName}" Foreground="Black" FontWeight="Medium" Grid.Column="0" />
+                    <TextBlock x:Name="Username" Margin="5,0,0,0" Text="{Binding username}" Foreground="Gray" FontSize="10"  Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="Tweet" Margin="0,5,0,0" Text="{Binding tweetText}" Foreground="Black" Grid.Row="1" Grid.ColumnSpan="2" />
+            </Grid>
+            </StackPanel>
+            
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <ListBox ItemTemplate="{StaticResource TweetTemplate}"/>
+    </StackPanel>
+</UserControl>
