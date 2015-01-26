@@ -49,12 +49,16 @@ namespace uMAD
                 scheduleData.Add(item);
         }
 
-        private Task<IList<ScheduleSession>> LoadFakeData()
+        private async Task<List<ScheduleSession>> LoadFakeData()
         {
-            List<ScheduleSession> list = new List<ScheduleSession>();
-            list.Add(new ScheduleSession() { SpeakerName = "Mustafa Taleb", SubjectName = "WP is Awesome", Time = new DateTime(2015, 2, 21, 15, 30, 0) });
-            list.Add(new ScheduleSession() { SpeakerName = "Mustafa Taleb", SubjectName = "WP is Awesome", Time = new DateTime(2015, 2, 21, 16, 30, 0) });
-            list.Add(new ScheduleSession() { SpeakerName = "Mustafa Taleb", SubjectName = "WP is Great", Time = new DateTime(2015, 2, 21, 9, 30, 0) });
+            return await Task.Factory.StartNew<List<ScheduleSession>>(() =>
+            {
+                List<ScheduleSession> list = new List<ScheduleSession>();
+                list.Add(new ScheduleSession() { SpeakerName = "Mustafa Taleb", SubjectName = "WP is Awesome", Time = new DateTime(2015, 2, 21, 15, 30, 0) });
+                list.Add(new ScheduleSession() { SpeakerName = "Mustafa Taleb", SubjectName = "WP is Amazing", Time = new DateTime(2015, 2, 21, 16, 30, 0) });
+                list.Add(new ScheduleSession() { SpeakerName = "Mustafa Taleb", SubjectName = "WP is Great", Time = new DateTime(2015, 2, 21, 9, 30, 0) });
+                return list;
+            });
         }
     }
 }
