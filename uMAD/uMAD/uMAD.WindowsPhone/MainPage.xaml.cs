@@ -66,12 +66,27 @@ namespace uMAD
                     VisualStateManager.GoToState(this, "ScheduleState", true);
                     break;
                 case 1:
-                    VisualStateManager.GoToState(this, "TwitterStatee", true);
+                    VisualStateManager.GoToState(this, "TwitterState", true);
                     break;
                 case 2:
                     VisualStateManager.GoToState(this, "SponsorState", true);
                     break;
             }
+        }
+
+        private void scheduleHeaderBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            navigationPivot.SelectedIndex = 0;
+        }
+
+        private void Social_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            navigationPivot.SelectedIndex = 1;
+        }
+
+        private void sponsorsHeaderBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            navigationPivot.SelectedIndex = 2;
         }
     }
 }

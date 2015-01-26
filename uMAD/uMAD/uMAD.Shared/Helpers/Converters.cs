@@ -4,13 +4,19 @@ using System.Text;
 
 namespace uMAD.Helpers
 {
-    public class StringFormatConverter : Windows.UI.Xaml.Data.IValueConverter
+    public class ScheduleDateConverter : Windows.UI.Xaml.Data.IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            string arg = System.Convert.ToString(value);
+            string returned = value.ToString();
+            if (value is DateTime)
+            {
+                var date = (DateTime)value;
+                returned = date.ToString("hh:mmt ddd");
+            }
 
-            return string.Format((string)parameter, arg);
+
+            return returned;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
