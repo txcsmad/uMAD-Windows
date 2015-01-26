@@ -2,6 +2,11 @@
     x:Class="uMAD.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:uMAD">
-
+    xmlns:local="using:uMAD"
+    xmlns:helpers="using:uMAD.Helpers">
+    <Application.Resources>
+        <helpers:StringFormatConverter x:Key="StringFormatConverter"/>
+        <Color x:Key="MADColor">#FFD32F2F</Color>
+        <SolidColorBrush Color="{StaticResource MADColor}" x:Key="MADBrush"/>
+    </Application.Resources>
 </Application>
