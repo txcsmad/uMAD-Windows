@@ -46,10 +46,10 @@
                     <Path x:Name="Path" Width="43.87145" Height="35.5863" Canvas.Left="2.265" Canvas.Top="10.04"  Stretch="Fill" Data="F1 M 81.9902,23.3536C 85.9196,20.929 88.5391,17.6454 89.8002,13.4297C 85.9683,15.4767 82.1608,16.8595 78.3533,17.6454C 74.9235,13.9537 70.5921,12.0773 65.3835,12.0773C 60.315,12.0773 56.0079,13.8623 52.505,17.3347C 49.0082,20.8315 47.2477,25.0715 47.2477,30.0426C 47.2477,31.5412 47.4365,32.8754 47.8203,34.0146C 32.8279,33.515 20.4307,27.3073 10.647,15.3365C 9.00828,18.2607 8.17368,21.2397 8.17368,24.3344C 8.17368,30.664 10.842,35.6838 16.1968,39.3694C 13.1508,39.1075 10.4582,38.346 8.17368,37.0849C 8.17368,41.6052 9.50782,45.3944 12.17,48.7206C 14.8383,52.0042 18.2864,54.1242 22.4777,55.0075C 20.9547,55.4096 19.3586,55.5985 17.6954,55.5985C 16.1725,55.5985 15.1003,55.4583 14.4545,55.1964C 15.5754,58.882 17.6954,61.861 20.7658,64.1699C 23.8118,66.4544 27.3086,67.6667 31.2318,67.7824C 24.7621,72.8753 17.336,75.3974 8.93517,75.3974C 6.8639,75.3974 5.41401,75.3548 4.53067,75.2086C 12.8158,80.5878 22.0268,83.25 32.2066,83.25C 42.6299,83.25 51.841,80.6121 59.8581,75.3304C 67.8812,70.0669 73.7843,63.5729 77.5918,55.9579C 81.4237,48.3185 83.3,40.3929 83.3,32.1139L 83.3,29.8294C 86.9918,27.0453 89.989,23.9262 92.2735,20.4782C 88.9656,21.9037 85.5358,22.854 81.9902,23.3536 Z " Fill="LightGray"/>
                 </Canvas>
             </Canvas>
-            <TextBlock Tapped="sponsorsHeaderBlock_Tapped" Grid.Column="2" x:Name="sponsorsHeaderBlock" Text="&#xE1CF;" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" FontSize="35" Height="50" Foreground="LightGray" FontFamily="seguisym.ttf#Segoe UI Symbol"/>
+            <TextBlock Tapped="sponsorsHeaderBlock_Tapped" Grid.Column="2" x:Name="sponsorsHeaderBlock" Text="&#xE1F8;" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" FontSize="35" Height="50" Foreground="LightGray" FontFamily="seguisym.ttf#Segoe UI Symbol"/>
         </Grid>
         <Pivot Margin="0" Padding="0" Grid.Row="1" x:Name="navigationPivot" PivotItemLoaded="navigationPivot_PivotItemLoaded">
-            <PivotItem>
+            <PivotItem Margin="0,12">
                 <local:ScheduleControl x:Name="scheduleControl"/>
             </PivotItem>
             <PivotItem></PivotItem>

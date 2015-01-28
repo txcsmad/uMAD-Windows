@@ -35,7 +35,7 @@
     <build:Item Name="CodeSharingProject" Value="248F659F-DAC5-46E8-AC09-60EC9FC95053" />
     <build:Item Name="TargetFrameworkMoniker" Value=".NETCore,Version=v4.5.1" />
     <build:Item Name="VisualStudio" Version="14.0" />
-    <build:Item Name="VisualStudioEdition" Value="Blend for Visual Studio 2015" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Ultimate 2015 Preview" />
     <build:Item Name="OperatingSystem" Version="10.0.9926.0 (fbl_awesome1501.150119-1648)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.22310.1" />
     <build:Item Name="ProjectGUID" Value="f45f6651-c702-4645-af24-c7f5227c6c3a" />

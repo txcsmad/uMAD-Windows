@@ -1,50 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>WIN-80EIONAA4RD</Machine>
-    <WindowsUser>Melanie</WindowsUser>
+    <Machine>WIN-OER4T905BBJ</Machine>
+    <WindowsUser>Mustafa</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>f59de174-b0c4-4458-b3bb-718f325f0203</PackageIdentityName>
-    <IntermediateOutputPath>P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\bin\Debug\uMAD.Windows.exe">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\bin\Debug\uMAD.Windows.exe">
       <PackagePath>uMAD.Windows.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\bin\Debug\uMAD.Windows.xr.xml">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\bin\Debug\uMAD.Windows.xr.xml">
       <PackagePath>uMAD.Windows.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

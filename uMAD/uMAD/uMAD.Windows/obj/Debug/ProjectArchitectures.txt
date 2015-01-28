@@ -1,1 +1,1 @@
-P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\uMAD.Windows.csproj;neutral
+I:\Sources\github\uMAD\uMAD\uMAD\uMAD.Windows\uMAD.Windows.csproj;neutral
