@@ -11,7 +11,7 @@
     RequestedTheme="Light">
     <UserControl.Resources>
         <DataTemplate x:Key="TweetTemplate">
-            <StackPanel Margin="15, 10, 5, 10" Orientation="Horizontal" d:DataContext="{d:DesignData /SampleData/TweetSampleData.xaml}">
+            <StackPanel Margin="15, 10, 5, 10" Orientation="Horizontal">
                 <Image x:Name="TwitterImage" Source="{Binding twitterImage}" d:DesignWidth="64.776" d:DesignHeight="56.07" RenderTransformOrigin="0.517,0.489" Width="50" Height="50"/>
                 <Grid Margin="10,0,0,0">
                     <Grid.RowDefinitions>
@@ -22,18 +22,16 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                
-              
-                    <TextBlock x:Name="DisplayName" Text="{Binding displayName}" Foreground="Black" FontWeight="Medium" Grid.Column="0" />
-                    <TextBlock x:Name="Username" Margin="5,0,0,0" Text="{Binding username}" Foreground="Gray" FontSize="10"  Grid.Column="1" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="Tweet" Margin="0,5,0,0" Text="{Binding tweetText}" Foreground="Black" Grid.Row="1" Grid.ColumnSpan="2" />
-            </Grid>
+
+                    <TextBlock x:Name="DisplayName" Text="{Binding displayName}" Foreground="Black"  FontSize="18" FontWeight="Medium" Grid.Column="0" />
+                    <TextBlock x:Name="Username" Margin="5,0,0,0" Text="{Binding username}" Foreground="Gray" FontSize="14"  Grid.Column="1" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="Tweet" Margin="0,5,0,0" Text="{Binding tweetText}" Foreground="Black" FontSize="18" Grid.Row="1" Grid.ColumnSpan="2" />
+                </Grid>
             </StackPanel>
-            
         </DataTemplate>
     </UserControl.Resources>
 
     <StackPanel>
-        <ListBox ItemTemplate="{StaticResource TweetTemplate}"/>
+        <ListView x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}"/>
     </StackPanel>
 </UserControl>
