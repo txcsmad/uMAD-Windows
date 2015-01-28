@@ -52,7 +52,9 @@
             <PivotItem Margin="0,12">
                 <local:ScheduleControl x:Name="scheduleControl"/>
             </PivotItem>
-            <PivotItem></PivotItem>
+            <PivotItem>
+                <local:TwitterFeedUserControl x:Name="tweetControl"/>
+            </PivotItem>
             <PivotItem></PivotItem>
         </Pivot>
     </Grid>
