@@ -13,7 +13,7 @@ namespace uMAD.Data
         [Parse.ParseFieldName("company")]
         public string SubjectName { get; set; }
 
-        [Parse.ParseFieldName("startTime")]
+        [Parse.ParseFieldName("startTime")] 
         public DateTime Time { get; set; }
     }
 }
