@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parse;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using uMAD.Data;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,19 +24,55 @@ namespace uMAD
     public sealed partial class SponsorsUserControl : UserControl
     {
         private List<Sponsor> sponsors;
+        private ParseQuery<Sponsor> parseSponsors;
+        private bool isLoaded;
 
         public SponsorsUserControl()
         {
             this.InitializeComponent();
-            setSponsors();
+
+            Loaded += SponsorsUserControl_Loaded;
+            //setSponsors();
         }
 
-        private void setSponsors()
+        private void SponsorsUserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            sponsors = new List<Sponsor>();
+            if (!isLoaded)
+            {
+                retrieveParseSponsors();
+                isLoaded = true;
+            }
 
-            sponsors.Add(new Sponsor() { CompanyName = "MSFT", CompanyURL = "http://www.microsoft.com/en-us/default.aspx", CompanyLogo = new BitmapImage( new Uri("/Assets/SmallLogo.scale-240.png", UriKind.Relative)) } );
-            sponsors.Add(new Sponsor() { CompanyName = "NewSponsor", CompanyURL = "http://www.google.com/", CompanyLogo = new BitmapImage(new Uri("/Assets/WideLogo.scale-240.png", UriKind.Relative)) });
         }
+
+        private async void retrieveParseSponsors()
+        {
+            parseSponsors = new ParseQuery<Sponsor>();
+            //parseSponsors = parseSponsors.Include("companyImage");
+            //parseSponsors.g
+            SponsorList.ItemsSource = await parseSponsors.FindAsync();
+
+        }
+
+        private void CompanyLogo_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            FrameworkElement image = sender as FrameworkElement;
+
+            if (image == null)
+                return;
+            Sponsor sponsor = image.DataContext as Sponsor;
+            if (sponsor == null)
+                return;
+            Launcher.LaunchUriAsync(new Uri(sponsor.CompanyURL));
+
+        }
+
+        //private void setSponsors()
+        //{
+        //    sponsors = new List<Sponsor>();
+
+        //    sponsors.Add(new Sponsor() { CompanyName = "MSFT", CompanyURL = "http://www.microsoft.com/en-us/default.aspx", CompanyLogo = new BitmapImage( new Uri("/Assets/SmallLogo.scale-240.png", UriKind.Relative)) } );
+        //    sponsors.Add(new Sponsor() { CompanyName = "NewSponsor", CompanyURL = "http://www.google.com/", CompanyLogo = new BitmapImage(new Uri("/Assets/WideLogo.scale-240.png", UriKind.Relative)) });
+        //}
     }
 }

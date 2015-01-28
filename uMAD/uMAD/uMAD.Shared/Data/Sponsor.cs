@@ -1,14 +1,51 @@
-﻿using System;
+﻿using Parse;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace uMAD.Data
 {
-    public class Sponsor
+    [Parse.ParseClassName("Sponsors")]
+    public class Sponsor : Parse.ParseObject
     {
-        public BitmapImage CompanyLogo { get; set; }
-        public string CompanyURL { get; set; }
-        public string CompanyName { get; set; }
+
+        public Sponsor()
+        {
+
+        }
+
+        [Parse.ParseFieldName("companyImage")]
+        public ParseFile CompanyLogo
+        {
+            get { return GetProperty<ParseFile>(); }
+            set { SetProperty<ParseFile>(value); }
+        }
+
+        [Parse.ParseFieldName("companyWebsite")]
+        public string CompanyURL
+        {
+
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
+
+        [Parse.ParseFieldName("companyName")]
+        public string CompanyName
+        {
+
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
+
+        public Uri CompanyLogoURI
+        {
+            get
+            {
+                if (CompanyLogo == null)
+                    return null;
+                return CompanyLogo.Url;
+            }
+        }
     }
 }
