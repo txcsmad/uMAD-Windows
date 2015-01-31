@@ -32,6 +32,6 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <ListView x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}"/>
+        <ListView SelectionChanged="TwitterFeed_SelectionChanged" x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}"/>
     </Grid>
 </UserControl>

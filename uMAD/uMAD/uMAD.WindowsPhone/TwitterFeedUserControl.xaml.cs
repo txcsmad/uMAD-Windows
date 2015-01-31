@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using LinqToTwitter;
+using Windows.System;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -75,12 +76,20 @@ namespace uMAD
             else
                 tweets = await (from tweet in context.Status where tweet.Type == StatusType.User && tweet.ScreenName == Handle && tweet.Count == 200 select tweet).ToListAsync();
 
-            for(int i = 0; i < tweets.Count; i++)
+            for (int i = 0; i < tweets.Count; i++)
             {
-                if (tweets[0].Retweeted)
-                    tweets[0] = tweets[0].RetweetedStatus;
+                if (tweets[i].RetweetedStatus != null && tweets[i].RetweetedStatus.StatusID != 0)
+                    tweets[i] = tweets[i].RetweetedStatus;
             }
             return tweets;
+        }
+
+        private async void TwitterFeed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Status status = TwitterFeed.SelectedItem as Status;
+            if (status == null)
+                return;
+            await Launcher.LaunchUriAsync(new Uri(string.Format("https://twitter.com/{0}/status/{1}", status.User.ScreenNameResponse, status.StatusID)));
         }
 
         //private List<Tweet> LoadFakeData()
