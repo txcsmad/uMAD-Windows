@@ -58,6 +58,8 @@ namespace uMAD
         private async Task<IEnumerable<ScheduleSession>> LoadData()
         {
             var query = new Parse.ParseQuery<ScheduleSession>();
+            query = query.WhereGreaterThanOrEqualTo("startTime", DateTime.Now);
+            query = query.OrderBy("startTime");
             return await query.FindAsync();
         }
         private async Task<List<ScheduleSession>> LoadFakeData()
