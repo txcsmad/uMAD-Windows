@@ -74,6 +74,12 @@ namespace uMAD
             }
             else
                 tweets = await (from tweet in context.Status where tweet.Type == StatusType.User && tweet.ScreenName == Handle && tweet.Count == 200 select tweet).ToListAsync();
+
+            for(int i = 0; i < tweets.Count; i++)
+            {
+                if (tweets[0].Retweeted)
+                    tweets[0] = tweets[0].RetweetedStatus;
+            }
             return tweets;
         }
 
