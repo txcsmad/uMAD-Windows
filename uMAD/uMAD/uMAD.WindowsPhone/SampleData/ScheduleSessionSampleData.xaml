@@ -1,1 +1,20 @@
-﻿<Data:ScheduleSession xmlns:Data="using:uMAD.Data" SpeakerName="Aaberg, Jesper" SubjectName="Aaberg, Jesper" Time="01/25/2015 19:35:08"/>
+﻿<Data:ScheduleSession xmlns:Data="using:uMAD.Data" xmlns:Parse="using:Parse" xmlns:System="using:System" CompanyName="Aaberg, Jesper" ClassName="Mus fames libero" CompanyWebsite="Aliquam eleifend phasellus vestibulum donec" Description="Etiam aliquet congue blandit" EndTime="01/30/2015 18:22:22" Email="Vestibulum nunc amet" IsDirty="False" IsNew="True" IsDataAvailable="False" ObjectId="Gravida interdum lectus fermentum iaculis" SpeakerName="Aaberg, Jesper" SubjectName="Adipiscing integer quisque nullam cras" Time="01/30/2015 18:22:22" TwitterHandle="Sed dis commodo ante consequat">
+	<Data:ScheduleSession.ACL>
+		<Parse:ParseACL PublicWriteAccess="False" PublicReadAccess="True"/>
+	</Data:ScheduleSession.ACL>
+	<Data:ScheduleSession.CompanyImageFile>
+		<Parse:ParseFile IsDirty="True" MimeType="Auctor bibendum dictumst curabitur duis" Name="Maecenas aptent nam praesent accumsan"/>
+	</Data:ScheduleSession.CompanyImageFile>
+	<Data:ScheduleSession.Keys>
+		<System:String>Fusce adipiscing arcu conubia</System:String>
+		<System:String>Diam convallis lorem parturient vestibulum</System:String>
+		<System:String>Vestibulum cubilia eget</System:String>
+		<System:String>Facilisi dapibus</System:String>
+		<System:String>Morbi dignissim nulla cursus</System:String>
+		<System:String>Elementum est</System:String>
+		<System:String>Faucibus proin elit habitant adipiscing</System:String>
+		<System:String>Inceptos hac dictum egestas augue</System:String>
+		<System:String>Parturient leo euismod</System:String>
+		<System:String>Feugiat dolor facilisis</System:String>
+	</Data:ScheduleSession.Keys>
+</Data:ScheduleSession>

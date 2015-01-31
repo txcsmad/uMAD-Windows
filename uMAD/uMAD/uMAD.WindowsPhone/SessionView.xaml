@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="uMAD.SessionView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:uMAD"
+    RequestedTheme="Light"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SlideNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Pivot Title="{Binding CompanyName}" x:Name="sessionPivot">
+        <Pivot.TitleTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding}" Foreground="{StaticResource MADBrush}"/>
+            </DataTemplate>
+        </Pivot.TitleTemplate>
+        <PivotItem Header="info">
+            <ScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image MaxHeight="200" HorizontalAlignment="Center" Source="{Binding CompanyImageUri}" Grid.Row="0" Stretch="Uniform"/>
+                    <TextBlock TextWrapping="Wrap" Margin="0,12,0,12" Text="{Binding Description}" Grid.Row="1" FontSize="18"/>
+                    <StackPanel Grid.Row="2">
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Text="Time" Foreground="{StaticResource MADBrush}" FontSize="20"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Time, Converter={StaticResource StringFormatConverter}}" FontSize="18"/>
+                                <TextBlock Text="-" FontSize="18" Margin="6,0"/>
+                                <TextBlock Text="{Binding EndTime, Converter={StaticResource StringFormatConverter}}" FontSize="18"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Text="Room" Foreground="{StaticResource MADBrush}" FontSize="20"/>
+                            <TextBlock Text="{Binding Room}" FontSize="18"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Text="Speaker" Foreground="{StaticResource MADBrush}" FontSize="20"/>
+                            <TextBlock Text="{Binding SpeakerName}" FontSize="18"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Text="Email" Foreground="{StaticResource MADBrush}" FontSize="20"/>
+                            <TextBlock x:Name="emailBlock" Tapped="emailBlock_Tapped" Text="{Binding Email}" FontSize="18"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,0,12">
+                            <TextBlock Text="Website" Foreground="{StaticResource MADBrush}" FontSize="20"/>
+                            <TextBlock Text="{Binding CompanyWebsite}" FontSize="18"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </PivotItem>
+    </Pivot>
+</Page>

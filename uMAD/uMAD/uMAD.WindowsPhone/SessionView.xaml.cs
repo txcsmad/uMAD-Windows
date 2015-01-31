@@ -1,12 +1,12 @@
-﻿using System;
+﻿using uMAD.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using uMAD.Common;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI;
+using Windows.Graphics.Display;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,36 +15,29 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using uMAD.Data;
+using Windows.System;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
 namespace uMAD
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class SessionView : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        public MainPage()
+
+        public SessionView()
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-            Loaded += MainPage_Loaded;
         }
-
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            //StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
-            var bar = StatusBar.GetForCurrentView();
-            bar.BackgroundColor = (Color)App.Current.Resources["MADColor"];
-            bar.BackgroundOpacity = 1;
-        }
-
 
         /// <summary>
         /// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.
@@ -107,7 +100,28 @@ namespace uMAD
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.navigationHelper.OnNavigatedTo(e);
+            navigationHelper.OnNavigatedTo(e);
+            if (ScheduleSession.CurrentSession == null)
+                Frame.GoBack();
+            this.DataContext = ScheduleSession.CurrentSession;
+            LoadTwitter();
+        }
+
+        private async void LoadTwitter()
+        {
+            if (string.IsNullOrEmpty(ScheduleSession.CurrentSession.TwitterHandle))
+                return;
+            sessionPivot.Items.Add(new PivotItem() { Header = "twitter" });
+        }
+
+        private async void urlBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri(ScheduleSession.CurrentSession.CompanyWebsite));
+        }
+
+        private async void emailBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("mailto:" + ScheduleSession.CurrentSession.Email));
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -116,36 +130,5 @@ namespace uMAD
         }
 
         #endregion
-
-        private void navigationPivot_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
-        {
-            switch (navigationPivot.SelectedIndex)
-            {
-                case 0:
-                    VisualStateManager.GoToState(this, "ScheduleState", true);
-                    break;
-                case 1:
-                    VisualStateManager.GoToState(this, "TwitterState", true);
-                    break;
-                case 2:
-                    VisualStateManager.GoToState(this, "SponsorState", true);
-                    break;
-            }
-        }
-
-        private void scheduleHeaderBlock_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            navigationPivot.SelectedIndex = 0;
-        }
-
-        private void Social_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            navigationPivot.SelectedIndex = 1;
-        }
-
-        private void sponsorsHeaderBlock_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            navigationPivot.SelectedIndex = 2;
-        }
     }
 }

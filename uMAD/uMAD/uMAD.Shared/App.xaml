@@ -6,6 +6,7 @@
     xmlns:helpers="using:uMAD.Helpers">
     <Application.Resources>
         <helpers:ScheduleDateConverter x:Key="StringFormatConverter"/>
+        <helpers:CapitalConverter x:Key="CapitalConverter"/>
         <Color x:Key="MADColor">#FFD32F2F</Color>
         <SolidColorBrush Color="{StaticResource MADColor}" x:Key="MADBrush"/>
     </Application.Resources>

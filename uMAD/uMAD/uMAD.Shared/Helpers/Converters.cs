@@ -24,5 +24,17 @@ namespace uMAD.Helpers
             throw new NotImplementedException();
         }
     }
+    public class CapitalConverter : Windows.UI.Xaml.Data.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            string returned = value.ToString();
+            return returned.ToUpper(); ;
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

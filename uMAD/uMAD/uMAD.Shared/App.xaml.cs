@@ -100,8 +100,8 @@ namespace uMAD
                     throw new Exception("Failed to create initial page");
                 }
             }
-            Parse.ParseClient.Initialize("uY4oviE7S1f5tJ4naI4J0BExh6qSTYUwdQCpukoX", "ZrmeeaYo7b4OIt0s0w5DhkRtPZQmHYCgJJJA2r50");
             Parse.ParseObject.RegisterSubclass<uMAD.Data.ScheduleSession>();
+            Parse.ParseClient.Initialize("uY4oviE7S1f5tJ4naI4J0BExh6qSTYUwdQCpukoX", "ZrmeeaYo7b4OIt0s0w5DhkRtPZQmHYCgJJJA2r50");
             // Ensure the current window is active
             Window.Current.Activate();
         }
