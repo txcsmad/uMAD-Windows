@@ -38,6 +38,13 @@ namespace uMAD.Data
             set { SetProperty<string>(value); }
         }
 
+        [Parse.ParseFieldName("sponsorLevel")]
+        public int SponsorLevel
+        {
+            get { return GetProperty<int>(); }
+            set { SetProperty<int>(value); }
+        }
+
         public Uri CompanyLogoURI
         {
             get

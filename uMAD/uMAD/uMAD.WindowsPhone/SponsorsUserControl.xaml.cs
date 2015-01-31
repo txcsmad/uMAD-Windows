@@ -52,7 +52,7 @@ namespace uMAD
 
         private async void retrieveParseSponsors()
         {
-            parseSponsors = new ParseQuery<Sponsor>();
+            parseSponsors = from sponsor in new ParseQuery<Sponsor>() orderby sponsor.SponsorLevel descending select sponsor;
             //parseSponsors = parseSponsors.Include("companyImage");
             //parseSponsors.g
             SponsorList.ItemsSource = await parseSponsors.FindAsync();
