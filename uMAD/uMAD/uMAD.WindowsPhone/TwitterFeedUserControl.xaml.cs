@@ -21,6 +21,7 @@ namespace uMAD
 {
     public sealed partial class TwitterFeedUserControl : UserControl
     {
+        public string Handle = "@utcsmad";
         private ObservableCollection<Tweet> tweetData;
         private bool isLoaded;
 
