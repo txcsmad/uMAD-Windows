@@ -59,7 +59,7 @@ namespace uMAD
 
         }
 
-        private void CompanyLogo_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void CompanyLogo_Tapped(object sender, TappedRoutedEventArgs e)
         {
             FrameworkElement image = sender as FrameworkElement;
 
@@ -68,7 +68,7 @@ namespace uMAD
             Sponsor sponsor = image.DataContext as Sponsor;
             if (sponsor == null)
                 return;
-            Launcher.LaunchUriAsync(new Uri(sponsor.CompanyURL));
+            await Launcher.LaunchUriAsync(new Uri(sponsor.CompanyURL));
 
         }
 

@@ -228,6 +228,13 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <ListView x:Name="SponsorList" ItemTemplate="{StaticResource SponsorTemplate}" ItemContainerStyle="{StaticResource ListViewItemStyle1}"/>
+        <ListView x:Name="SponsorList" ItemTemplate="{StaticResource SponsorTemplate}" ItemContainerStyle="{StaticResource ListViewItemStyle1}">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition
+                            FromHorizontalOffset="400" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+        </ListView>
     </Grid>
 </UserControl>
