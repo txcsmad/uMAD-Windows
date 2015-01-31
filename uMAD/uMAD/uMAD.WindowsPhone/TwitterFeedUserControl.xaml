@@ -10,7 +10,7 @@
     d:DesignWidth="400"
     RequestedTheme="Light">
     <UserControl.Resources>
-        <DataTemplate x:Key="TweetTemplate">
+        <DataTemplate x:Key="TweetTemplate" >
             <StackPanel Margin="15, 10, 5, 10" Orientation="Horizontal">
                 <Image x:Name="TwitterImage" Source="{Binding twitterImage}" d:DesignWidth="64.776" d:DesignHeight="56.07" RenderTransformOrigin="0.517,0.489" Width="50" Height="50"/>
                 <Grid Margin="10,0,0,0">
