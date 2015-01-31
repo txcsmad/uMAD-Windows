@@ -45,6 +45,17 @@ namespace uMAD
             bar.BackgroundOpacity = 1;
         }
 
+        private void LoadedEvent(object sender, EventArgs e)
+        {
+            loadingRing.IsActive = false;
+        }
+
+        private void LoadingEvent(object sender, EventArgs e)
+        {
+            loadingRing.IsActive = true;
+        }
+
+
 
         /// <summary>
         /// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.

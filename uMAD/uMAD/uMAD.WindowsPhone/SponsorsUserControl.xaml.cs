@@ -26,7 +26,8 @@ namespace uMAD
         private List<Sponsor> sponsors;
         private ParseQuery<Sponsor> parseSponsors;
         private bool isLoaded;
-
+        public event EventHandler LoadingTweets;
+        public event EventHandler LoadedTweets;
         public SponsorsUserControl()
         {
             this.InitializeComponent();
@@ -39,8 +40,12 @@ namespace uMAD
         {
             if (!isLoaded)
             {
+                if (LoadingTweets != null)
+                    LoadingTweets(this, new EventArgs());
                 retrieveParseSponsors();
                 isLoaded = true;
+                if (LoadedTweets != null)
+                    LoadedTweets(this, new EventArgs());
             }
 
         }

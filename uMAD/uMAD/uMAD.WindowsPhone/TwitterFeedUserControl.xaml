@@ -11,27 +11,27 @@
     RequestedTheme="Light">
     <UserControl.Resources>
         <DataTemplate x:Key="TweetTemplate" >
-            <StackPanel Margin="15, 10, 5, 10" Orientation="Horizontal">
-                <Image x:Name="TwitterImage" Source="{Binding twitterImage}" d:DesignWidth="64.776" d:DesignHeight="56.07" RenderTransformOrigin="0.517,0.489" Width="50" Height="50"/>
-                <Grid Margin="10,0,0,0">
+            <Grid Margin="24,0,0,24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Pivot.SlideInAnimationGroup="GroupOne" VerticalAlignment="Top" x:Name="TwitterImage" Source="{Binding User.ProfileImageUrl}" d:DesignWidth="64.776" d:DesignHeight="56.07" RenderTransformOrigin="0.517,0.489" Width="50" Height="50"/>
+                <Grid Grid.Column="1" Margin="6,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock x:Name="DisplayName" Text="{Binding displayName}" Foreground="Black"  FontSize="18" FontWeight="Medium" Grid.Column="0" />
-                    <TextBlock x:Name="Username" Margin="5,0,0,0" Text="{Binding username}" Foreground="Gray" FontSize="14"  Grid.Column="1" VerticalAlignment="Center"/>
-                    <TextBlock x:Name="Tweet" Margin="0,5,0,0" Text="{Binding tweetText}" Foreground="Black" FontSize="18" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <StackPanel Pivot.SlideInAnimationGroup="GroupOne" Orientation="Horizontal">
+                        <TextBlock x:Name="DisplayName" Text="{Binding User.Name}" Foreground="Black"  FontSize="18" FontWeight="Medium"/>
+                        <TextBlock x:Name="Username" Margin="5,0,0,0" Text="{Binding ScreenName}" Foreground="Gray" FontSize="14" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <TextBlock Pivot.SlideInAnimationGroup="GroupTwo" x:Name="Tweet" Margin="0,5,0,0" Text="{Binding Text}" Foreground="Black" FontSize="18" Grid.Row="1" TextWrapping="Wrap"/>
                 </Grid>
-            </StackPanel>
+            </Grid>
         </DataTemplate>
     </UserControl.Resources>
-
-    <StackPanel>
+    <Grid>
         <ListView x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}"/>
-    </StackPanel>
+    </Grid>
 </UserControl>

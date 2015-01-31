@@ -24,6 +24,8 @@ namespace uMAD
     {
         private ObservableCollection<ScheduleSession> scheduleData;
         private bool isLoaded;
+        public event EventHandler LoadingTweets;
+        public event EventHandler LoadedTweets;
         public ScheduleControl()
         {
             this.InitializeComponent();
@@ -35,9 +37,13 @@ namespace uMAD
         {
             if (!isLoaded)
             {
+                if (LoadingTweets != null)
+                    LoadingTweets(this, new EventArgs());
                 dataList.ItemsSource = scheduleData;
                 await RefreshData();
                 isLoaded = true;
+                if (LoadedTweets != null)
+                    LoadedTweets(this, new EventArgs());
             }
         }
 

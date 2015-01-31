@@ -107,11 +107,24 @@ namespace uMAD
             LoadTwitter();
         }
 
-        private async void LoadTwitter()
+        private void LoadTwitter()
         {
             if (string.IsNullOrEmpty(ScheduleSession.CurrentSession.TwitterHandle))
                 return;
-            sessionPivot.Items.Add(new PivotItem() { Header = "twitter" });
+            var twitterControl = new TwitterFeedUserControl() { Handle = ScheduleSession.CurrentSession.TwitterHandle };
+            twitterControl.LoadingTweets += TwitterControl_LoadingTweets;
+            twitterControl.LoadedTweets += TwitterControl_LoadedTweets;
+            sessionPivot.Items.Add(new PivotItem() { Margin = new Thickness(0), Header = "twitter", Content = twitterControl });
+        }
+
+        private void TwitterControl_LoadedTweets(object sender, EventArgs e)
+        {
+            loadingRing.IsActive = false;
+        }
+
+        private void TwitterControl_LoadingTweets(object sender, EventArgs e)
+        {
+            loadingRing.IsActive = true;
         }
 
         private async void urlBlock_Tapped(object sender, TappedRoutedEventArgs e)

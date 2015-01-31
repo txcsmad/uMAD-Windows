@@ -9,11 +9,10 @@
     d:DesignHeight="300"
     d:DesignWidth="400"
      RequestedTheme="Light">
-
     <UserControl.Resources>
         <DataTemplate x:Key="SponsorTemplate">
             <Grid Margin="15, 10, 15, 10" >
-                <Image x:Name="CompanyLogo" Source="{Binding CompanyLogoURI}" Tapped="CompanyLogo_Tapped" d:DesignWidth="64.776" d:DesignHeight="56.07"/>
+                <Image Pivot.SlideInAnimationGroup="GroupOne" x:Name="CompanyLogo" Source="{Binding CompanyLogoURI}" Tapped="CompanyLogo_Tapped" d:DesignWidth="64.776" d:DesignHeight="56.07"/>
             </Grid>
         </DataTemplate>
         <FontFamily x:Key="ContentControlThemeFontFamily">Segoe WP</FontFamily>
@@ -228,7 +227,6 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-
     <Grid>
         <ListView x:Name="SponsorList" ItemTemplate="{StaticResource SponsorTemplate}" ItemContainerStyle="{StaticResource ListViewItemStyle1}"/>
     </Grid>

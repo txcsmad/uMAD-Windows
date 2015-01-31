@@ -7,7 +7,7 @@ namespace uMAD.Data
 {
     public class Tweet
     {
-        public BitmapImage twitterImage { get; set; }
+        public Uri twitterImage { get; set; }
         public string username { get; set; }
         public string displayName { get; set; }
         public string tweetText { get; set; }
