@@ -244,6 +244,12 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition
+                            FromHorizontalOffset="400" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
         </ListView>
     </Grid>
 </UserControl>

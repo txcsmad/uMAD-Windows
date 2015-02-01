@@ -24,7 +24,8 @@
                     </Grid.RowDefinitions>
                     <StackPanel Pivot.SlideInAnimationGroup="GroupOne" Orientation="Horizontal">
                         <TextBlock x:Name="DisplayName" Text="{Binding User.Name}" Foreground="Black"  FontSize="18" FontWeight="Medium"/>
-                        <TextBlock x:Name="Username" Margin="5,0,0,0" Text="{Binding ScreenName}" Foreground="Gray" FontSize="14" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5,0,0,0" Text="@" Foreground="Gray" FontSize="14" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="Username" Margin="0,0,0,0" Text="{Binding User.ScreenNameResponse}" Foreground="Gray" FontSize="14" VerticalAlignment="Center"/>
                     </StackPanel>
                     <TextBlock Pivot.SlideInAnimationGroup="GroupTwo" x:Name="Tweet" Margin="0,5,0,0" Text="{Binding Text}" Foreground="Black" FontSize="18" Grid.Row="1" TextWrapping="Wrap"/>
                 </Grid>
@@ -32,6 +33,13 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
-        <ListView SelectionChanged="TwitterFeed_SelectionChanged" x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}"/>
+        <ListView SelectionChanged="TwitterFeed_SelectionChanged" x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>                    
+                    <EntranceThemeTransition
+                            FromHorizontalOffset="400" />
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+        </ListView>
     </Grid>
 </UserControl>
