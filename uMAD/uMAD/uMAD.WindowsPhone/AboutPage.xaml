@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="uMAD.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:uMAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Light">
+
+    <Page.Transitions >
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SlideNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="UNIVERSITY OF MAD" Foreground="{StaticResource MADBrush}" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="about us" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <ScrollViewer Grid.Row="1" x:Name="ContentRoot" Margin="20,9.5,20,0" HorizontalScrollBarVisibility="Disabled">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" FontSize="22" Text="Who are we?" Margin="0,0,0,5" Foreground="{StaticResource MADBrush}"/>
+                <TextBlock Grid.Row="1" FontSize="18" Text="We are a student organization at the University of Texas. We are focused on building the UT community by creating a learning environment for all students through our workshops, hack nights, conferences, and other awesome events. We want to build the next generation of successful developers, designers, and entrepreneurs." TextWrapping="Wrap"/>
+                <TextBlock Grid.Row="2" FontSize="22" Text="What is uMAD?" Foreground="{StaticResource MADBrush}" Margin="0,12,0,5"/>
+                <TextBlock Grid.Row="3" FontSize="18" Text="The University of MAD is a daylong conference hosted within the Deptartment of Computer Science at UT Austin, and intends to provide CS students a comprehensive overview of core technologies used in industry everyday. Similar to Google I/O and Apple WWDC, uMAD is led by engineers and designers from some of the best companies that built some of the most widely used products. The uMAD developer conference caters to all experience levels and students will be able to showcase their projects to companies." TextWrapping="Wrap"/>
+                
+                <TextBlock Grid.Row="5" FontSize="18" Text="Mustafa Taleb           Melanie Rivera" Margin="0,20,0,5" Foreground="{StaticResource MADBrush}" Opacity=".5" TextAlignment="Center"/>
+                <TextBlock Grid.Row="6" FontSize="18" Text="February 2015" Margin="0,0,0,50" Foreground="{StaticResource MADBrush}" Opacity=".5" TextAlignment="Center"/>
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

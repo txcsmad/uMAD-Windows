@@ -234,7 +234,7 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Pivot.SlideInAnimationGroup="GroupOne" Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CompanyName,Converter={StaticResource CapitalConverter}}" VerticalAlignment="Top" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="24" FontWeight="Black" FontFamily="Segoe UI Black" Foreground="{StaticResource MADBrush}"/>

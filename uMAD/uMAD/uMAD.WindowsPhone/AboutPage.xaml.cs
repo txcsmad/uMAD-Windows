@@ -1,12 +1,12 @@
-﻿using System;
+﻿using uMAD.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using uMAD.Common;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI;
+using Windows.Graphics.Display;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -16,46 +16,26 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
 namespace uMAD
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class AboutPage : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        public MainPage()
+
+        public AboutPage()
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-            Loaded += MainPage_Loaded;
         }
-
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            //StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
-            var bar = StatusBar.GetForCurrentView();
-            bar.BackgroundColor = (Color)App.Current.Resources["MADColor"];
-            bar.BackgroundOpacity = 1;
-        }
-
-        private void LoadedEvent(object sender, EventArgs e)
-        {
-            loadingRing.IsActive = false;
-        }
-
-        private void LoadingEvent(object sender, EventArgs e)
-        {
-            loadingRing.IsActive = true;
-        }
-
-
 
         /// <summary>
         /// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.
@@ -127,41 +107,5 @@ namespace uMAD
         }
 
         #endregion
-
-        private void navigationPivot_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
-        {
-            switch (navigationPivot.SelectedIndex)
-            {
-                case 0:
-                    VisualStateManager.GoToState(this, "ScheduleState", true);
-                    break;
-                case 1:
-                    VisualStateManager.GoToState(this, "TwitterState", true);
-                    break;
-                case 2:
-                    VisualStateManager.GoToState(this, "SponsorState", true);
-                    break;
-            }
-        }
-
-        private void scheduleHeaderBlock_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            navigationPivot.SelectedIndex = 0;
-        }
-
-        private void Social_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            navigationPivot.SelectedIndex = 1;
-        }
-
-        private void sponsorsHeaderBlock_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            navigationPivot.SelectedIndex = 2;
-        }
-
-        private void AboutBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate( typeof(AboutPage) );
-        }
     }
 }

@@ -62,4 +62,12 @@
         </Pivot>
         <ProgressRing IsActive="False" Grid.Row="1" Foreground="{StaticResource MADBrush}" x:Name="loadingRing"/>
     </Grid>
+    
+    <Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal" Background="{StaticResource MADBrush}" Foreground="White">
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="AboutBtn" Label="about" Click="AboutBtn_Click" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

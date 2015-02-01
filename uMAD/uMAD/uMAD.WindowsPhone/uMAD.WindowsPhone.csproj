@@ -80,6 +80,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
@@ -115,6 +118,10 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -148,10 +155,12 @@
     <Reference Include="LinqToTwitterPcl">
       <HintPath>..\..\packages\LinqToTwitter.3.1.1\lib\wpa\LinqToTwitterPcl.dll</HintPath>
     </Reference>
-    <Reference Include="Parse">
+    <Reference Include="Parse, Version=1.3.3.0, Culture=neutral, PublicKeyToken=ba48c3a442de616e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Parse.1.3.3\lib\netcore45\Parse.dll</HintPath>
     </Reference>
-    <Reference Include="Parse.WinRT">
+    <Reference Include="Parse.WinRT, Version=1.3.3.0, Culture=neutral, PublicKeyToken=ba48c3a442de616e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Parse.1.3.3\lib\netcore45\Parse.WinRT.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Extensions">
