@@ -45,6 +45,9 @@ namespace uMAD
                 if (LoadedTweets != null)
                     LoadedTweets(this, new EventArgs());
             }
+
+            if (scheduleData.Count == 0)
+                emptyControl.Visibility = Visibility.Visible;
         }
 
         private async Task RefreshData()

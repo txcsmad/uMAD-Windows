@@ -42,13 +42,15 @@ namespace uMAD
             {
                 if (LoadingTweets != null)
                     LoadingTweets(this, new EventArgs());
-                //TODO add Twitter feeds
+                //add Twitter feeds
                 TwitterFeed.ItemsSource = tweetData;
                 await RefreshData();
                 isLoaded = true;
                 if (LoadedTweets != null)
                     LoadedTweets(this, new EventArgs());
             }
+            if (tweetData.Count == 0)
+                emptyControl.Visibility = Visibility.Visible;
 
         }
 

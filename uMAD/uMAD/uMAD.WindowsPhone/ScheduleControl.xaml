@@ -224,6 +224,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
+        <local:EmptyUserControl x:Name="emptyControl" Visibility="Collapsed"/>
         <ListView x:Name="dataList" ItemContainerStyle="{StaticResource ListViewItemStyle1}">
             <ListView.ItemTemplate>
                 <DataTemplate>

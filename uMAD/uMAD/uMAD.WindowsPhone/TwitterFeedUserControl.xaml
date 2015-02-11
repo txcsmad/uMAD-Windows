@@ -251,6 +251,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
+        <local:EmptyUserControl Visibility="Collapsed"  x:Name="emptyControl"/>
         <ListView SelectionChanged="TwitterFeed_SelectionChanged" x:Name="TwitterFeed" ItemTemplate="{StaticResource TweetTemplate}" ItemContainerStyle="{StaticResource ListViewItemStyle1}">
             <ListView.ItemContainerTransitions>
                 <TransitionCollection>
