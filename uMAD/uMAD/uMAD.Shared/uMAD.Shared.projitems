@@ -18,9 +18,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\ScheduleSession.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Sponsor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Tweet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EmptyUserControl.xaml.cs">
+      <DependentUpon>EmptyUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Converters.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\uMAD_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)EmptyUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>
