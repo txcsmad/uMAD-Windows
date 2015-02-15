@@ -11,6 +11,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400" d:DataContext="{d:DesignData /SampleData/ScheduleSessionSampleData.xaml}">
     <UserControl.Resources>
+        <CollectionViewSource x:Name="scheduleCollection" IsSourceGrouped="True" Source="{Binding Items}" ItemsPath="{Binding}"/>
         <FontFamily x:Key="ContentControlThemeFontFamily">Segoe WP</FontFamily>
         <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
         <Thickness x:Key="ListViewItemMargin">0</Thickness>
@@ -225,32 +226,69 @@
     </UserControl.Resources>
     <Grid>
         <local:EmptyUserControl x:Name="emptyControl" Visibility="Collapsed"/>
-        <ListView x:Name="dataList" ItemContainerStyle="{StaticResource ListViewItemStyle1}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Tapped="Grid_Tapped" Margin="24,0,24,24"  d:DataContext="{d:DesignData /SampleData/ScheduleSessionSampleData.xaml}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Pivot.SlideInAnimationGroup="GroupOne" Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CompanyName,Converter={StaticResource CapitalConverter}}" VerticalAlignment="Top" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="24" FontWeight="Black" FontFamily="Segoe UI Black" Foreground="{StaticResource MADBrush}"/>
-                        <TextBlock Pivot.SlideInAnimationGroup="GroupTwo" TextWrapping="WrapWholeWords" Text="{Binding SubjectName}" Grid.ColumnSpan="2" Style="{StaticResource ListViewItemContentTextBlockStyle}" FontSize="24" FontWeight="Normal"  Grid.Row="1"/>
-                        <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding Time, Converter={StaticResource StringFormatConverter}}" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Foreground="{StaticResource MADBrush}"/>
-                        <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding SpeakerName}" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Margin="6,0,0,0" Foreground="{StaticResource MADBrush}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            <ListView.ItemContainerTransitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition
-                            FromHorizontalOffset="400" />
-                </TransitionCollection>
-            </ListView.ItemContainerTransitions>
-        </ListView>
+        <SemanticZoom x:Name="semanticControl">
+            <SemanticZoom.ZoomedInView>
+                <ListView ItemsSource="{Binding Source={StaticResource scheduleCollection}}" x:Name="dataList" ItemContainerStyle="{StaticResource ListViewItemStyle1}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Tapped="Grid_Tapped" Margin="24,0,24,24"  d:DataContext="{d:DesignData /SampleData/ScheduleSessionSampleData.xaml}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupOne" Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CompanyName,Converter={StaticResource CapitalConverter}}" VerticalAlignment="Top" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="24" FontWeight="Black" FontFamily="Segoe UI Black" Foreground="{StaticResource MADBrush}"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupTwo" TextWrapping="WrapWholeWords" Text="{Binding SubjectName}" Grid.ColumnSpan="2" Style="{StaticResource ListViewItemContentTextBlockStyle}" FontSize="24" FontWeight="Normal"  Grid.Row="1"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding Time, Converter={StaticResource StringFormatConverter}}" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Foreground="{StaticResource MADBrush}"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding SpeakerName}" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Margin="6,0,0,0" Foreground="{StaticResource MADBrush}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <!--<EntranceThemeTransition
+                            FromHorizontalOffset="400" />-->
+                            <PopupThemeTransition/>
+                        </TransitionCollection>
+                    </ListView.ItemContainerTransitions>
+                    <ListView.GroupStyle>
+                        <GroupStyle HidesIfEmpty="True">
+                            <GroupStyle.HeaderContainerStyle>
+                                <Style TargetType="ListViewHeaderItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                </Style>
+                            </GroupStyle.HeaderContainerStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Border VerticalAlignment="Top" Background="{StaticResource MADBrush}" Height="55" HorizontalAlignment="Stretch" Margin="24,0,24,10" BorderThickness="0">
+                                        <TextBlock FontSize="35" Foreground="White" FontFamily="{StaticResource PhoneFontFamilyLight}" Text="{Binding Title}" Margin="4" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                                    </Border>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ListView.GroupStyle>
+                </ListView>
+            </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <ListView Background="#7F000000" Padding="0,36" VerticalAlignment="Stretch" SelectionMode="None" ScrollViewer.IsHorizontalScrollChainingEnabled="False" HorizontalAlignment="Stretch">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border VerticalAlignment="Top" Background="{StaticResource MADBrush}" Height="55" HorizontalAlignment="Stretch" Margin="24,0,24,10" BorderThickness="0">
+                                <TextBlock FontSize="35" Foreground="White" FontFamily="{StaticResource PhoneFontFamilyLight}" Text="{Binding Title}" Margin="4" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
     </Grid>
 </UserControl>
