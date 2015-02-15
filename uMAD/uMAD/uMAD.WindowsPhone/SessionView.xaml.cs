@@ -114,7 +114,7 @@ namespace uMAD
             var twitterControl = new TwitterFeedUserControl() { Handle = ScheduleSession.CurrentSession.TwitterHandle };
             twitterControl.LoadingTweets += TwitterControl_LoadingTweets;
             twitterControl.LoadedTweets += TwitterControl_LoadedTweets;
-            sessionPivot.Items.Add(new PivotItem() { Margin = new Thickness(0), Header = "twitter", Content = twitterControl });
+            sessionPivot.Items.Add(new PivotItem() { Margin = new Thickness(0), Header = ScheduleSession.CurrentSession.TwitterHandle, Content = twitterControl });
         }
 
         private void TwitterControl_LoadedTweets(object sender, EventArgs e)
