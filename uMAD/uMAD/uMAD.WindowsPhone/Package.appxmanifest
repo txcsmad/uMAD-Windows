@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="958386ae-b0b4-48cc-bc03-54475231490e" Publisher="CN=Mustafa" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="958386ae-b0b4-48cc-bc03-54475231490e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="10089MustafaTaleb.uMAD" Publisher="CN=A6C9C2E8-D182-4432-A48E-28BED071B2BD" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="1ef11be3-7990-46b8-9268-15ac5a6f99a0" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>uMAD</DisplayName>
-    <PublisherDisplayName>Mustafa</PublisherDisplayName>
+    <PublisherDisplayName>Mustafa Taleb</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

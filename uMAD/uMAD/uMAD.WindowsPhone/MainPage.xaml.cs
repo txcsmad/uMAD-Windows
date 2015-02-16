@@ -6,7 +6,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using uMAD.Common;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Networking.Connectivity;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -30,11 +32,28 @@ namespace uMAD
         public MainPage()
         {
             this.InitializeComponent();
-
+            checkInternet();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
             Loaded += MainPage_Loaded;
+        }
+
+        private async void checkInternet()
+        {
+            if (!IsInternet())
+            {
+                MessageDialog dlg = new MessageDialog("Please make sure you are connected to the internet.");
+                await dlg.ShowAsync();
+                App.Current.Exit();
+            }
+        }
+
+        public static bool IsInternet()
+        {
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
+            return internet;
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -161,7 +180,7 @@ namespace uMAD
 
         private void AboutBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate( typeof(AboutPage) );
+            Frame.Navigate(typeof(AboutPage));
         }
     }
 }
