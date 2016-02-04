@@ -102,6 +102,8 @@ namespace uMAD
             }
             Parse.ParseObject.RegisterSubclass<uMAD.Data.ScheduleSession>();
             Parse.ParseObject.RegisterSubclass<uMAD.Data.Sponsor>();
+            Parse.ParseObject.RegisterSubclass<Data.Company>();
+            Parse.ParseObject.RegisterSubclass<Data.UMAD>();            
             Parse.ParseClient.Initialize("uY4oviE7S1f5tJ4naI4J0BExh6qSTYUwdQCpukoX", "ZrmeeaYo7b4OIt0s0w5DhkRtPZQmHYCgJJJA2r50");
             Parse.ParseObject.RegisterSubclass<uMAD.Data.ScheduleSession>();
             // Ensure the current window is active

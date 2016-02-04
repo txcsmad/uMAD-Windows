@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 
 namespace uMAD.Data
 {
-    [Parse.ParseClassName("Sponsors")]
+    [Parse.ParseClassName("UMAD_Sponsor")]
     public class Sponsor : Parse.ParseObject
     {
 
@@ -15,44 +16,64 @@ namespace uMAD.Data
 
         }
 
-        [Parse.ParseFieldName("companyImage")]
-        public ParseFile CompanyLogo
+        [Parse.ParseFieldName("level")]
+        public string Level
         {
-            get { return GetProperty<ParseFile>(); }
-            set { SetProperty<ParseFile>(value); }
-        }
-
-        [Parse.ParseFieldName("companyWebsite")]
-        public string CompanyURL
-        {
-
             get { return GetProperty<string>(); }
             set { SetProperty<string>(value); }
         }
 
-        [Parse.ParseFieldName("companyName")]
-        public string CompanyName
+        [Parse.ParseFieldName("umad")]
+        public UMAD UMad
         {
-
-            get { return GetProperty<string>(); }
-            set { SetProperty<string>(value); }
+            get { return GetProperty<UMAD>(); }
+            set { SetProperty(value); }
         }
 
-        [Parse.ParseFieldName("sponsorLevel")]
-        public int SponsorLevel
+        [Parse.ParseFieldName("company")]
+        public Company Company
         {
-            get { return GetProperty<int>(); }
-            set { SetProperty<int>(value); }
+            get { return GetProperty<Company>(); }
+            set { SetProperty(value); }
         }
+        //[Parse.ParseFieldName("companyImage")]
+        //public ParseFile CompanyLogo
+        //{
+        //    get { return GetProperty<ParseFile>(); }
+        //    set { SetProperty<ParseFile>(value); }
+        //}
 
-        public Uri CompanyLogoURI
-        {
-            get
-            {
-                if (CompanyLogo == null)
-                    return null;
-                return CompanyLogo.Url;
-            }
-        }
+        //[Parse.ParseFieldName("companyWebsite")]
+        //public string CompanyURL
+        //{
+
+        //    get { return GetProperty<string>(); }
+        //    set { SetProperty<string>(value); }
+        //}
+
+        //[Parse.ParseFieldName("companyName")]
+        //public string CompanyName
+        //{
+
+        //    get { return GetProperty<string>(); }
+        //    set { SetProperty<string>(value); }
+        //}
+
+        //[Parse.ParseFieldName("sponsorLevel")]
+        //public int SponsorLevel
+        //{
+        //    get { return GetProperty<int>(); }
+        //    set { SetProperty<int>(value); }
+        //}
+
+        //public Uri CompanyLogoURI
+        //{
+        //    get
+        //    {
+        //        if (CompanyLogo == null)
+        //            return null;
+        //        return CompanyLogo.Url;
+        //    }
+        //}
     }
 }
