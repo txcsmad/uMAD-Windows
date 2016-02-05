@@ -66,7 +66,7 @@ namespace uMAD
         {
             var auth = new ApplicationOnlyAuthorizer();
             auth.AccessType = AuthAccessType.Read;
-            auth.CredentialStore = new InMemoryCredentialStore() { ConsumerKey = "BDsfo5Y8ijmlOLFkrFwgDVyAS", ConsumerSecret = "2ccMZzRQleAetszTCJMjD76j97nWvsHG5AwToimT3EOdr7YrC5" };
+            auth.CredentialStore = new InMemoryCredentialStore() { ConsumerKey = Private.Keys.TWITTER_API_KEY, ConsumerSecret = Private.Keys.TWITTER_API_SECRET };
             await auth.AuthorizeAsync();
             var context = new TwitterContext(auth);
             var tweets = new List<Status>();

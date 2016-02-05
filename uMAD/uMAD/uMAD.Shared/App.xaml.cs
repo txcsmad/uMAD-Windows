@@ -107,7 +107,7 @@ namespace uMAD
             Parse.ParseObject.RegisterSubclass<Data.Application>();
             Parse.ParseObject.RegisterSubclass<Data.ApplicationStatus>();
             Parse.ParseObject.RegisterSubclass<Data.User>();
-            Parse.ParseClient.Initialize(Private.Keys.APP_ID, Private.Keys.APP_KEY);
+            Parse.ParseClient.Initialize(Private.Keys.PARSE_APP_ID, Private.Keys.PARSE_APP_KEY);
             // Ensure the current window is active
             Window.Current.Activate();
         }
