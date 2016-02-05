@@ -100,12 +100,14 @@ namespace uMAD
                     throw new Exception("Failed to create initial page");
                 }
             }
-            Parse.ParseObject.RegisterSubclass<uMAD.Data.ScheduleSession>();
-            Parse.ParseObject.RegisterSubclass<uMAD.Data.Sponsor>();
+            Parse.ParseObject.RegisterSubclass<Data.ScheduleSession>();
+            Parse.ParseObject.RegisterSubclass<Data.Sponsor>();
             Parse.ParseObject.RegisterSubclass<Data.Company>();
-            Parse.ParseObject.RegisterSubclass<Data.UMAD>();            
-            Parse.ParseClient.Initialize("uY4oviE7S1f5tJ4naI4J0BExh6qSTYUwdQCpukoX", "ZrmeeaYo7b4OIt0s0w5DhkRtPZQmHYCgJJJA2r50");
-            Parse.ParseObject.RegisterSubclass<uMAD.Data.ScheduleSession>();
+            Parse.ParseObject.RegisterSubclass<Data.UMAD>();
+            Parse.ParseObject.RegisterSubclass<Data.Application>();
+            Parse.ParseObject.RegisterSubclass<Data.ApplicationStatus>();
+            Parse.ParseObject.RegisterSubclass<Data.User>();
+            Parse.ParseClient.Initialize(Private.Keys.APP_ID, Private.Keys.APP_KEY);
             // Ensure the current window is active
             Window.Current.Activate();
         }

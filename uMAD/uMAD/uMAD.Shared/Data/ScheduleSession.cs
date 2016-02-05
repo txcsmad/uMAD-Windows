@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 namespace uMAD.Data
 {
-    [Parse.ParseClassName("Events")]
+    [Parse.ParseClassName("UMAD_Session")]
     public class ScheduleSession : Parse.ParseObject
     {
         [Parse.ParseFieldName("speaker")]
@@ -15,7 +16,7 @@ namespace uMAD.Data
         }
 
 
-        [Parse.ParseFieldName("sessionName")]
+        [Parse.ParseFieldName("name")]
         public string SubjectName
         {
             get { return GetProperty<string>(); }
@@ -32,10 +33,10 @@ namespace uMAD.Data
 
 
         [Parse.ParseFieldName("company")]
-        public string CompanyName
+        public Company Company
         {
-            get { return GetProperty<string>(); }
-            set { SetProperty<string>(value); }
+            get { return GetProperty<Company>(); }
+            set { SetProperty(value); }
         }
 
         [Parse.ParseFieldName("room")]
@@ -46,29 +47,33 @@ namespace uMAD.Data
         }
 
 
-        [Parse.ParseFieldName("companyImage")]
-        public Parse.ParseFile CompanyImageFile
-        {
-            get { return GetProperty<Parse.ParseFile>(); }
-            set { SetProperty<Parse.ParseFile>(value); }
-        }
-
-
-        [Parse.ParseFieldName("companyWebsite")]
-        public string CompanyWebsite
-        {
-            get { return GetProperty<string>(); }
-            set { SetProperty<string>(value); }
-        }
-
-
-        [Parse.ParseFieldName("description")]
+        [Parse.ParseFieldName("descriptionText")]
         public string Description
         {
             get { return GetProperty<string>(); }
             set { SetProperty<string>(value); }
         }
 
+        [Parse.ParseFieldName("favoriteCount")]
+        public int FavoriteCount
+        {
+            get { return GetProperty<int>(); }
+            set { SetProperty(value); }
+        }
+
+        [Parse.ParseFieldName("capacity")]
+        public int Capacity
+        {
+            get { return GetProperty<int>(); }
+            set { SetProperty(value); }
+        }
+
+        [Parse.ParseFieldName("bio")]
+        public string Bio
+        {
+            get { return GetProperty<string>(); }
+            set { SetProperty<string>(value); }
+        }
 
         [Parse.ParseFieldName("email")]
         public string Email
@@ -85,23 +90,35 @@ namespace uMAD.Data
             set { SetProperty<DateTime>(value); }
         }
 
-
-        [Parse.ParseFieldName("twitterHandle")]
-        public string TwitterHandle
+        [Parse.ParseFieldName("umad")]
+        public UMAD UMad
         {
-            get { return GetProperty<string>(); }
-            set { SetProperty<string>(value); }
+            get { return GetProperty<UMAD>(); }
+            set { SetProperty(value); }
+        }
+
+        [Parse.ParseFieldName("topicTags")]
+        public string[] Tags
+        {
+            get { return GetProperty<string[]>(); }
+            set { SetProperty(value); }
         }
 
         public Uri CompanyImageUri
         {
             get
             {
-                return CompanyImageFile?.Url;
+                return Company?.ImageFile?.Url;
             }
         }
 
         public static ScheduleSession CurrentSession { get; set; }
+
+        public async Task IncrementFavoriteCount()
+        {
+            this.Increment("favoriteCount");
+            await this.SaveAsync();
+        }
 
         public override int GetHashCode()
         {

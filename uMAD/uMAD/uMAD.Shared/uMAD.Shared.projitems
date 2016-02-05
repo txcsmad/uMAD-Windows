@@ -15,15 +15,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Application.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ApplicationStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Company.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ScheduleSession.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Sponsor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Tweet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\UMAD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmptyUserControl.xaml.cs">
       <DependentUpon>EmptyUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Converters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Private\Keys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\uMAD_red.png" />

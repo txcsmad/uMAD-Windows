@@ -62,7 +62,6 @@
         </Pivot>
         <ProgressRing IsActive="False" Grid.Row="1" Foreground="{StaticResource MADBrush}" x:Name="loadingRing"/>
     </Grid>
-    
     <Page.BottomAppBar>
         <CommandBar ClosedDisplayMode="Minimal" Background="{StaticResource MADBrush}" Foreground="White">
             <CommandBar.SecondaryCommands>
