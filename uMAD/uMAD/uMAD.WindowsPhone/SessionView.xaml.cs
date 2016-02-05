@@ -109,12 +109,12 @@ namespace uMAD
 
         private void LoadTwitter()
         {
-            if (string.IsNullOrEmpty(ScheduleSession.CurrentSession.TwitterHandle))
+            if (string.IsNullOrEmpty(ScheduleSession.CurrentSession?.Company?.TwitterHandle))
                 return;
-            var twitterControl = new TwitterFeedUserControl() { Handle = ScheduleSession.CurrentSession.TwitterHandle };
+            var twitterControl = new TwitterFeedUserControl() { Handle = ScheduleSession.CurrentSession.Company.TwitterHandle };
             twitterControl.LoadingTweets += TwitterControl_LoadingTweets;
             twitterControl.LoadedTweets += TwitterControl_LoadedTweets;
-            sessionPivot.Items.Add(new PivotItem() { Margin = new Thickness(0), Header = ScheduleSession.CurrentSession.TwitterHandle, Content = twitterControl });
+            sessionPivot.Items.Add(new PivotItem() { Margin = new Thickness(0), Header = ScheduleSession.CurrentSession.Company.TwitterHandle, Content = twitterControl });
         }
 
         private void TwitterControl_LoadedTweets(object sender, EventArgs e)
@@ -129,7 +129,7 @@ namespace uMAD
 
         private async void urlBlock_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri(ScheduleSession.CurrentSession.CompanyWebsite));
+            await Launcher.LaunchUriAsync(new Uri(ScheduleSession.CurrentSession.Company.WebsiteUrl));
         }
 
         private async void emailBlock_Tapped(object sender, TappedRoutedEventArgs e)

@@ -231,7 +231,7 @@
                 <ListView ItemsSource="{Binding Source={StaticResource scheduleCollection}}" x:Name="dataList" ItemContainerStyle="{StaticResource ListViewItemStyle1}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Tapped="Grid_Tapped" Margin="24,0,24,24"  d:DataContext="{d:DesignData /SampleData/ScheduleSessionSampleData.xaml}">
+                            <Grid Tapped="Grid_Tapped" Margin="24,0,24,24">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
@@ -239,12 +239,14 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Pivot.SlideInAnimationGroup="GroupOne" Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CompanyName,Converter={StaticResource CapitalConverter}}" VerticalAlignment="Top" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="24" FontWeight="Black" FontFamily="Segoe UI Black" Foreground="{StaticResource MADBrush}"/>
-                                <TextBlock Pivot.SlideInAnimationGroup="GroupTwo" TextWrapping="WrapWholeWords" Text="{Binding SubjectName}" Grid.ColumnSpan="2" Style="{StaticResource ListViewItemContentTextBlockStyle}" FontSize="24" FontWeight="Normal"  Grid.Row="1"/>
-                                <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding Time, Converter={StaticResource StringFormatConverter}}" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Foreground="{StaticResource MADBrush}"/>
-                                <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding SpeakerName}" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Margin="6,0,0,0" Foreground="{StaticResource MADBrush}"/>
+                                <Image Height="80" Width="80" VerticalAlignment="Top" Source="{Binding Company.ThumbnailFile.Url}" Grid.RowSpan="4"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupOne" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Company.Name,Converter={StaticResource CapitalConverter}}" VerticalAlignment="Top" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="24" FontWeight="Black" FontFamily="Segoe UI Black" Foreground="{StaticResource MADBrush}"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupTwo" Grid.Column="1" TextWrapping="WrapWholeWords" Text="{Binding SubjectName}" Grid.ColumnSpan="2" Style="{StaticResource ListViewItemContentTextBlockStyle}" FontSize="24" FontWeight="Normal"  Grid.Row="1"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Grid.Column="1" Text="{Binding Time, Converter={StaticResource StringFormatConverter}}" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Foreground="{StaticResource MADBrush}"/>
+                                <TextBlock Pivot.SlideInAnimationGroup="GroupThree" Text="{Binding SpeakerName}" Grid.Row="2" HorizontalAlignment="Right" Grid.Column="2" Style="{StaticResource ListViewItemSubheaderTextBlockStyle}" FontSize="18.667" Margin="6,0,0,0" Foreground="{StaticResource MADBrush}"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>

@@ -15,6 +15,9 @@ namespace uMAD.Data
             set { SetProperty(value); }
         }
 
+        public static UMAD CurrentUMad { get; set; }
+
+
         public static async Task<UMAD> GetCurrentUMad()
         {
             var currentYear = DateTime.Now.Year;

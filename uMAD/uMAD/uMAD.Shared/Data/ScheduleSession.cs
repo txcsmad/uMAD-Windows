@@ -27,7 +27,7 @@ namespace uMAD.Data
         [Parse.ParseFieldName("startTime")]
         public DateTime Time
         {
-            get { return GetProperty<DateTime>(); }
+            get { return GetProperty<DateTime>().ToLocalTime(); }
             set { SetProperty<DateTime>(value); }
         }
 
@@ -86,7 +86,7 @@ namespace uMAD.Data
         [Parse.ParseFieldName("endTime")]
         public DateTime EndTime
         {
-            get { return GetProperty<DateTime>(); }
+            get { return GetProperty<DateTime>().ToLocalTime(); }
             set { SetProperty<DateTime>(value); }
         }
 

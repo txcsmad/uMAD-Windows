@@ -52,7 +52,7 @@ namespace uMAD
 
         private async void retrieveParseSponsors()
         {
-            parseSponsors = from sponsor in new ParseQuery<Sponsor>() orderby sponsor.SponsorLevel descending select sponsor;
+            parseSponsors = from sponsor in new ParseQuery<Sponsor>() orderby sponsor.Level descending select sponsor;
             //parseSponsors = parseSponsors.Include("companyImage");
             //parseSponsors.g
             SponsorList.ItemsSource = await parseSponsors.FindAsync();
@@ -68,7 +68,7 @@ namespace uMAD
             Sponsor sponsor = image.DataContext as Sponsor;
             if (sponsor == null)
                 return;
-            await Launcher.LaunchUriAsync(new Uri(sponsor.CompanyURL));
+            await Launcher.LaunchUriAsync(new Uri(sponsor.Company.WebsiteUrl));
 
         }
 
