@@ -8,7 +8,7 @@
         <helpers:ScheduleDateConverter x:Key="StringFormatConverter"/>
         <helpers:CapitalConverter x:Key="CapitalConverter"/>
         <helpers:RelativeDateTimeConverter x:Key="RelativeTweetDateConverter"/>
-        <Color x:Key="MADColor">#FFFFBB2B</Color>
+        <Color x:Key="MADColor">#FFB10F</Color>
         <SolidColorBrush Color="{StaticResource MADColor}" x:Key="MADBrush"/>
         <helpers:ValueWhenConverter x:Key="BooleanToVisibilityConverter">
             <helpers:ValueWhenConverter.When>
