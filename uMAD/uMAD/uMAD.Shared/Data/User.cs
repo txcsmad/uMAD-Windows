@@ -80,5 +80,7 @@ namespace uMAD.Data
             get { return GetProperty<string>(); }
             set { SetProperty(value); }
         }
+
+        public static User CurrentUser { get; set; }
     }
 }

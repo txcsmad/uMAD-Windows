@@ -26,8 +26,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)EmptyUserControl.xaml.cs">
       <DependentUpon>EmptyUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\AwaitableDelegateCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Converters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Private\Keys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScheduleSessionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\uMAD_red.png" />

@@ -17,8 +17,11 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <Grid>
-        <Pivot Title="{Binding CompanyName, Converter={StaticResource CapitalConverter}}" x:Name="sessionPivot">
+    <Page.DataContext>
+        <local:ScheduleSessionViewModel/>
+    </Page.DataContext>
+    <Grid DataContext="{Binding CurrentScheduleSession}">
+        <Pivot Title="{Binding Company.Name, Converter={StaticResource CapitalConverter}}" x:Name="sessionPivot">
             <Pivot.TitleTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}" Foreground="{StaticResource MADBrush}"/>
@@ -65,12 +68,16 @@
                                 <TextBlock Text="{Binding SpeakerName}" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Margin="0,0,0,12">
+                                <TextBlock Text="Speaker Bio" Foreground="{StaticResource MADBrush}" FontSize="20"/>
+                                <TextBlock Text="{Binding Bio}" TextWrapping="Wrap" FontSize="18"/>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,0,12">
                                 <TextBlock Text="Email" Foreground="{StaticResource MADBrush}" FontSize="20"/>
                                 <HyperlinkButton x:Name="emailBlock" Tapped="emailBlock_Tapped" Content="{Binding Email}" FontSize="18"/>
                             </StackPanel>
                             <StackPanel Margin="0,0,0,12">
                                 <TextBlock Text="Website" Foreground="{StaticResource MADBrush}" FontSize="20"/>
-                                <HyperlinkButton Content="{Binding CompanyWebsite}" Tapped="urlBlock_Tapped" FontSize="18"/>
+                                <HyperlinkButton Content="{Binding Company.WebsiteUrl}" Tapped="urlBlock_Tapped" FontSize="18"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
@@ -79,4 +86,10 @@
         </Pivot>
         <ProgressRing x:Name="loadingRing" IsActive="False" Foreground="{StaticResource MADBrush}" />
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar DataContext="{Binding CurrentScheduleSession}" Background="{StaticResource MADBrush}" Foreground="White">
+            <AppBarButton Command="{Binding FavoriteSessionCommand}" Visibility="{Binding IsFavorite, Converter={StaticResource InverseBooleanToVisibilityConverter}}" x:Name="FavoriteAppBarButton" Click="FavoriteAppBarButton_OnClick" Icon="Favorite" Label="+Favorite"></AppBarButton>
+            <AppBarButton Command="{Binding UnFavoriteSessionCommand}" Visibility="{Binding IsFavorite, Converter={StaticResource BooleanToVisibilityConverter}}" x:Name="UnFavoriteAppBarButton" Click="UnFavoriteAppBarButton_OnClick" Icon="UnFavorite" Label="-Favorite"></AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

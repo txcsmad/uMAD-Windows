@@ -81,7 +81,10 @@ namespace uMAD
 
         private async Task<IEnumerable<ScheduleSession>> LoadData()
         {
+            if (UMAD.CurrentUMad == null)
+                UMAD.CurrentUMad = await UMAD.GetCurrentUMad();
             var query = from item in new ParseQuery<ScheduleSession>().Include("company").Include("umad")
+                        where item.UMad.Equals(UMAD.CurrentUMad)
                         orderby item.Time ascending
                         select item;
             //query = query.WhereGreaterThanOrEqualTo("startTime", DateTime.Now);

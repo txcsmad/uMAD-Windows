@@ -29,7 +29,6 @@ namespace uMAD
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
         public SessionView()
         {
             this.InitializeComponent();
@@ -38,6 +37,8 @@ namespace uMAD
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
         }
+
+
 
         /// <summary>
         /// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.
@@ -103,7 +104,7 @@ namespace uMAD
             navigationHelper.OnNavigatedTo(e);
             if (ScheduleSession.CurrentSession == null)
                 Frame.GoBack();
-            this.DataContext = ScheduleSession.CurrentSession;
+            //this.DataContext = ScheduleSession.CurrentSession;
             LoadTwitter();
         }
 
@@ -143,5 +144,31 @@ namespace uMAD
         }
 
         #endregion
+
+
+       
+        // Using a DependencyProperty as the backing store for IsFavorite.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsFavoriteProperty =
+            DependencyProperty.Register("IsFavorite", typeof(bool), typeof(SessionView), new PropertyMetadata(default(bool)));
+
+
+
+        private async void FavoriteAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (User.CurrentUser?.Favorites == null)
+                return;
+            User.CurrentUser.Favorites.Add(ScheduleSession.CurrentSession);
+            await User.CurrentUser.SaveAsync();
+            //TODO            
+        }
+
+        private async void UnFavoriteAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (User.CurrentUser?.Favorites == null)
+                return;
+            User.CurrentUser.Favorites.Remove(ScheduleSession.CurrentSession);
+            await User.CurrentUser.SaveAsync();
+            //TODO
+        }
     }
 }

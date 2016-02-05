@@ -104,19 +104,18 @@ namespace uMAD.Data
             set { SetProperty(value); }
         }
 
-        public Uri CompanyImageUri
-        {
-            get
-            {
-                return Company?.ImageFile?.Url;
-            }
-        }
+        public Uri CompanyImageUri => Company?.ImageFile?.Url;
 
         public static ScheduleSession CurrentSession { get; set; }
 
         public async Task IncrementFavoriteCount()
         {
             this.Increment("favoriteCount");
+            await this.SaveAsync();
+        }
+        public async Task DecrementFavoriteCount()
+        {
+            this.Increment("favoriteCount", -1);
             await this.SaveAsync();
         }
 
