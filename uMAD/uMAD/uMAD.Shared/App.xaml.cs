@@ -108,11 +108,11 @@ namespace uMAD
                 //// parameter
                 //else
                 {
-                    if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
-                    {
-                        throw new Exception("Failed to create initial page");
-                    }
+                if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                {
+                    throw new Exception("Failed to create initial page");
                 }
+            }
             }
             Parse.ParseObject.RegisterSubclass<Data.ScheduleSession>();
             Parse.ParseObject.RegisterSubclass<Data.Sponsor>();
