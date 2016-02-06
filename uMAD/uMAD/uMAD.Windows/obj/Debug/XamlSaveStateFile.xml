@@ -1,7 +1,0 @@
-<XamlCompilerSaveState>
-  <ReferenceAssemblyList>
-    <LocalAssembly PathName="p:\source\github\umad\umad\umad\umad.windows\obj\debug\intermediatexaml\umad.windows.exe" HashGuid="02a806be-6ccc-6d1e-a0d4-bda4ba21a3b8" />
-    <ReferenceAssembly PathName="g:\sources\github\umad-windows\umad\packages\parse.1.3.3\lib\netcore45\parse.dll" HashGuid="c6cd874c-778d-18cc-0ff6-98fca6adce10" />
-    <ReferenceAssembly PathName="g:\sources\github\umad-windows\umad\packages\parse.1.3.3\lib\netcore45\parse.winrt.dll" HashGuid="686a4480-5b84-291b-04f2-3ed7db81ad6f" />
-  </ReferenceAssemblyList>
-</XamlCompilerSaveState>

@@ -1,1 +1,0 @@
-P:\Source\GitHub\uMad\uMAD\uMAD\uMAD.Windows\uMAD.Windows.csproj;neutral
