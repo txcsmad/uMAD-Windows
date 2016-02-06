@@ -151,24 +151,5 @@ namespace uMAD
         public static readonly DependencyProperty IsFavoriteProperty =
             DependencyProperty.Register("IsFavorite", typeof(bool), typeof(SessionView), new PropertyMetadata(default(bool)));
 
-
-
-        private async void FavoriteAppBarButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (User.CurrentUser?.Favorites == null)
-                return;
-            User.CurrentUser.Favorites.Add(ScheduleSession.CurrentSession);
-            await User.CurrentUser.SaveAsync();
-            //TODO            
-        }
-
-        private async void UnFavoriteAppBarButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (User.CurrentUser?.Favorites == null)
-                return;
-            User.CurrentUser.Favorites.Remove(ScheduleSession.CurrentSession);
-            await User.CurrentUser.SaveAsync();
-            //TODO
-        }
     }
 }

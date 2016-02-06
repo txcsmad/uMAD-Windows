@@ -182,5 +182,10 @@ namespace uMAD
         {
             Frame.Navigate(typeof(AboutPage));
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
+        }
     }
 }

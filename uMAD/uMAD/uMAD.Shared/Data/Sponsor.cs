@@ -66,14 +66,14 @@ namespace uMAD.Data
         //    set { SetProperty<int>(value); }
         //}
 
-        //public Uri CompanyLogoURI
-        //{
-        //    get
-        //    {
-        //        if (CompanyLogo == null)
-        //            return null;
-        //        return CompanyLogo.Url;
-        //    }
-        //}
+        public Uri CompanyLogoURI
+        {
+            get
+            {
+                if (Company?.ImageFile?.Url == null)
+                    return null;
+                return Company.ImageFile.Url;
+            }
+        }
     }
 }

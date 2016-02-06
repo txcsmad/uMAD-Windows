@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="uMAD.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:uMAD"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Dark">
+
+    <StackPanel Background="{StaticResource MADBrush}">
+        <Grid Margin="25,15,25,0">
+            <Image Source="Assets/uMAD_white.png" Margin="0,0,0,-50"></Image>
+        </Grid>
+        <StackPanel Margin="75,0">
+            <TextBlock Margin="0,30" FontSize="16" TextAlignment="Center" TextWrapping="WrapWholeWords" Text="University of MAD (uMAD) is an annual, daylong conference providing UTCS students with key insights into mobile, web, and cloud technologies used in the industry everyday."></TextBlock>
+            <Button x:Name="ContinueButton" FontSize="20" Content="continue" Click="ContinueButton_OnClick_OnClick" HorizontalAlignment="Center" BorderThickness="0"/>
+        </StackPanel>
+    </StackPanel>
+</Page>

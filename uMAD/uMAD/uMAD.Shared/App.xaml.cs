@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -15,6 +17,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Parse;
+using uMAD.Data;
+using uMAD.Helpers;
+using Application = Windows.UI.Xaml.Application;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -45,7 +51,7 @@ namespace uMAD
         /// search results, and so forth.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -61,10 +67,9 @@ namespace uMAD
             if (rootFrame == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                rootFrame = new Frame();
+                rootFrame = new Frame { CacheSize = 1 };
 
                 // TODO: change this value to a cache size that is appropriate for your application
-                rootFrame.CacheSize = 1;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -91,13 +96,22 @@ namespace uMAD
                 rootFrame.ContentTransitions = null;
                 rootFrame.Navigated += this.RootFrame_FirstNavigated;
 #endif
-
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                //if (ParseUser.CurrentUser == null)
+                //{
+                //    if (!rootFrame.Navigate(typeof(LandingPage), e.Arguments))
+                //    {
+                //        throw new Exception("Failed to create initial page");
+                //    }
+                //}
+                //// When the navigation stack isn't restored navigate to the first page,
+                //// configuring the new page by passing required information as a navigation
+                //// parameter
+                //else
                 {
-                    throw new Exception("Failed to create initial page");
+                    if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                    {
+                        throw new Exception("Failed to create initial page");
+                    }
                 }
             }
             Parse.ParseObject.RegisterSubclass<Data.ScheduleSession>();
@@ -110,6 +124,11 @@ namespace uMAD
             Parse.ParseClient.Initialize(Private.Keys.PARSE_APP_ID, Private.Keys.PARSE_APP_KEY);
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        public static async Task Notify(string message)
+        {
+            await new MessageDialog(message).ShowAsync();
         }
 
 #if WINDOWS_PHONE_APP

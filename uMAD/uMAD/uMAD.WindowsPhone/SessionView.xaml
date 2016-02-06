@@ -87,9 +87,9 @@
         <ProgressRing x:Name="loadingRing" IsActive="False" Foreground="{StaticResource MADBrush}" />
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar DataContext="{Binding CurrentScheduleSession}" Background="{StaticResource MADBrush}" Foreground="White">
-            <AppBarButton Command="{Binding FavoriteSessionCommand}" Visibility="{Binding IsFavorite, Converter={StaticResource InverseBooleanToVisibilityConverter}}" x:Name="FavoriteAppBarButton" Click="FavoriteAppBarButton_OnClick" Icon="Favorite" Label="+Favorite"></AppBarButton>
-            <AppBarButton Command="{Binding UnFavoriteSessionCommand}" Visibility="{Binding IsFavorite, Converter={StaticResource BooleanToVisibilityConverter}}" x:Name="UnFavoriteAppBarButton" Click="UnFavoriteAppBarButton_OnClick" Icon="UnFavorite" Label="-Favorite"></AppBarButton>
-        </CommandBar>
+        <!--<CommandBar DataContext="{Binding CurrentScheduleSession}" Background="{StaticResource MADBrush}" Foreground="White">
+            <AppBarButton Command="{Binding FavoriteSessionCommand}" Visibility="{Binding IsFavorite, Converter={StaticResource InverseBooleanToVisibilityConverter}}" x:Name="FavoriteAppBarButton" Icon="Favorite" Label="+Favorite"></AppBarButton>
+            <AppBarButton Command="{Binding UnFavoriteSessionCommand}" Visibility="{Binding IsFavorite, Converter={StaticResource BooleanToVisibilityConverter}}" x:Name="UnFavoriteAppBarButton" Icon="UnFavorite" Label="-Favorite"></AppBarButton>
+        </CommandBar>-->
     </Page.BottomAppBar>
 </Page>

@@ -5,8 +5,7 @@ using Parse;
 
 namespace uMAD.Data
 {
-    [Parse.ParseClassName("User")]
-    public class User : ParseObject
+    public class User : ParseUser
     {
         [ParseFieldName("gender")]
         public string Gender
@@ -80,7 +79,5 @@ namespace uMAD.Data
             get { return GetProperty<string>(); }
             set { SetProperty(value); }
         }
-
-        public static User CurrentUser { get; set; }
     }
 }
